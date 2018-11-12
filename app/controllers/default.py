@@ -35,3 +35,9 @@ def mine():
     db.session.add(user)
     db.session.commit()
     return "Ok"
+
+@app.route('/filter')
+def filter():
+    read = User.query.filter_by(username = "Joao").all()
+    print (read)
+    return "OK"

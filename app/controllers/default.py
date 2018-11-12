@@ -29,8 +29,9 @@ def getExample():
 def html(user):
     return render_template('index.html', user = user)
 
-@app.route('/Mine')
+@app.route('/add')
 def mine():
-    user = User("Joao", "312", "John")
-    db.session()
+    user = User("Joao", "312", "John", "joaovitorlessa@gmail.com")
+    db.session.add(user)
     db.session.commit()
+    return "Ok"

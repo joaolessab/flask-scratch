@@ -15,4 +15,5 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 # Normal to import after app declaration #
+from app.models import tables
 from app.controllers import default

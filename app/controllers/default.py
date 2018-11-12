@@ -1,6 +1,8 @@
 # Importing app from app root folder
-from app import app
+from app import app, db
 from flask import render_template
+
+from app.models.tables import User
 
 # http://127.0.0.1:5000/
 @app.route('/')
@@ -26,3 +28,9 @@ def getExample():
 @app.route('/html/<user>')
 def html(user):
     return render_template('index.html', user = user)
+
+@app.route('/Mine')
+def mine():
+    user = User("Joao", "312", "John")
+    db.session()
+    db.session.commit()

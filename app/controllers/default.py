@@ -41,3 +41,12 @@ def filter():
     read = User.query.filter_by(username = "Joao").all()
     print (read)
     return "OK"
+
+# Update using select #
+
+@app.route('/delete')
+def deletee():
+    read = User.query.filter_by(username = "Joao").first()
+    db.session.delete(read)
+    db.session.commit()
+    return "OK"

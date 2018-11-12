@@ -1,5 +1,6 @@
 # Importing app from app root folder
 from app import app
+from flask import render_template
 
 # http://127.0.0.1:5000/
 @app.route('/')
@@ -20,3 +21,8 @@ def test(name):
 @app.route('/test', methods = ['GET'])
 def getExample():
     return "Get request"
+
+@app.route('/html', defaults = {'user': None})
+@app.route('/html/<user>')
+def html(user):
+    return render_template('index.html', user = user)

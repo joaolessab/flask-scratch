@@ -20,6 +20,10 @@ class User(db.Model):
     def __repr__(self):
         return "<User %r>" % self.username
 
+    def delete(self, read):
+        db.session.delete(read)
+        db.session.commit()
+
 class Post(db.Model):
     __tablename__ = "posts"
 

@@ -45,8 +45,7 @@ def filter():
 # Update using select #
 
 @app.route('/delete')
-def deletee():
+def delete():
     read = User.query.filter_by(username = "Joao").first()
-    db.session.delete(read)
-    db.session.commit()
+    User.delete(read)
     return "OK"
